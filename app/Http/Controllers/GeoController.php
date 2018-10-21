@@ -22,4 +22,8 @@ class GeoController extends Controller
             'feelings' => $feelings
             ]);
     }
+    
+    function ajax() {
+        return Response::json(['name' => 'misumin']);
+    }
 }

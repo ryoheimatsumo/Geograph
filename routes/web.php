@@ -14,4 +14,5 @@
 Route::get('/', 'GeoController@index');
 Route::get('/{id}', 'GeoController@room')->name('geo.room');
 
+Route::get('/ajax', 'GeoController@ajax');
     
