@@ -11,5 +11,7 @@
 |
 */
 
-Route::get('/', 'GeoController@index' );
+Route::get('/', 'GeoController@index');
+Route::get('/{id}', 'GeoController@room')->name('geo.room');
+
     
