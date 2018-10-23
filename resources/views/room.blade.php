@@ -6,6 +6,7 @@
             room_id = {{$room->id}};
         </script>
         <script type="text/javascript" src="{{secure_asset('js/room.js')}}"></script>
+        <script type="text/javascript">tick();</script>
     </head>
     <body>
         <div class="container">
@@ -15,7 +16,7 @@
             <!-- New Feeling Form -->
             <hr>
             <h2>How are you feeling?</h2>
-            {!! Form::open(array('route' => 'feeling.create')) !!}
+            {!! Form::open(array('url' => URL::to('/feeling/create', array(), true) )) !!}
             {!! Form::token() !!}
             <label>Content</label>
             {!! Form::text('content') !!}<br>

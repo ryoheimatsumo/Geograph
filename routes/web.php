@@ -20,4 +20,4 @@ Route::post('/feeling/create', 'FeelingController@create')->name('feeling.create
 
 // API Controller
 Route::get('/api/roomdata/{id}', 'ApiController@getRoomData')->name('api.getRoomData');
-Route::get('/api/find/{lat}/{long}', 'GeoController@findRooms')->name('api.findRooms');
+Route::get('/api/find/{lat}/{long}', 'ApiController@findRooms')->name('api.findRooms');

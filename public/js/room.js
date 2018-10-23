@@ -12,7 +12,7 @@ function update(){
     	    displayRoomData(this.responseText);
     	}
     };
-    xhttp.open("GET", "https://0354c80f51ed43858e2388c9b8d44975.vfs.cloud9.us-east-2.amazonaws.com/api/roomdata/"+room_id, true);
+    xhttp.open("GET", "/api/roomdata/"+room_id, true);
     xhttp.send();
 }
 

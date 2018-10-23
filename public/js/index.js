@@ -1,37 +1,53 @@
-function getRooms(){
-    getGeo();
-    // sendAjax({latitude: 100, longitude:10});
+// == main ==
+// setInterval(tick, 5000);
+function tick(){
+    getRooms();
 }
 
-// ajax
-function displayRooms(data){
-    console.log(data);
+function getRooms(){
+    getGeo();
+}
+
+// == ajax ==
+function updateDOM(jData, coords){
+    displayRooms(jData);
+    updateForm(coords);
+}
+
+function displayRooms(jData){
+    var rooms = JSON.parse(jData);
+    console.log(rooms);
+    var roomsSection = document.getElementById("rooms-section");
+    
+    var dom = "";
+    for(var i=0; i<rooms.length; i++){
+        dom += "<h2><a href=\"/" + rooms[i].id + "\">" + rooms[i].title + "</a>(" + Math.round(rooms[i].distance) + "m away)</h2>";
+    }
+    roomsSection.innerHTML = dom;
+}
+
+function updateForm(coords){
+    var form = document.getElementById("create-room-form");
+    form.innerHTML+="<input type=\"hidden\" name=\"latitude\" value=\""+ coords.latitude +"\">";
+    form.innerHTML+="<input type=\"hidden\" name=\"longtitude\" value=\""+ coords.longitude +"\">";
 }
 
 function sendAjax(coords){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
     	if (this.readyState == 4 && this.status == 200) {
-    	    displayRooms(this.responseText);
+    	    updateDOM(this.responseText, coords);
     	}
     };
-    xhttp.open("GET", "https://0354c80f51ed43858e2388c9b8d44975.vfs.cloud9.us-east-2.amazonaws.com/api/find/"+coords.latitude+"/"+coords.longitude, true);
+    xhttp.open("GET", "/api/find/"+coords.latitude+"/"+coords.longitude, true);
     xhttp.send();
 }
 
-// geo location stuffs
+// == geo location ==
 function success(pos) {
     var crd = pos.coords;
     
     sendAjax(crd);
-        
-    // alert('Your current position is:');
-    // alert(`Latitude : ${crd.latitude}`);
-    // alert(`Longitude: ${crd.longitude}`);
-    // alert(`More or less ${crd.accuracy} meters.`);
-    
-    // var roomsSection = document.getElementById("rooms-section");
-    // roomsSection.innerHTML = "<h1>what</h1>";
 }
 
 var options = {
