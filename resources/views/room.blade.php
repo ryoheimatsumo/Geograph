@@ -5,6 +5,8 @@
         <script>
             room_id = {{$room->id}};
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+        <!--<script type="text/javascript" src="{{secure_asset('js/sketch.js')}}"></script>-->
         <script type="text/javascript" src="{{secure_asset('js/room.js')}}"></script>
         <script type="text/javascript">tick();</script>
     </head>

@@ -1,4 +1,4 @@
-setInterval(tick, 1000);
+setInterval(tick, 5000);
 
 function tick(){
     update();
@@ -24,4 +24,7 @@ function displayRoomData(data){
         feelingsHtml += "<p>" + feelings[i].content + "</p>";
     }
     feelingSection.innerHTML = feelingsHtml;
+    
+    // from sketch.js
+    onDataArrived(feelings);
 }

@@ -9,11 +9,11 @@
         <h1>GeoGraph</h1>
         
         <hr>
-        <h2>Available Rooms</h2>
+        <h2>Join</h2>
         <div id="rooms-section"></div>
         
         <hr>
-        <h2>Create One</h2>
+        <h2>Create</h2>
         {!! Form::open(array('url' => URL::to('/room/create', array(), true), 'id' =>'create-room-form')) !!}
         {!! Form::token() !!}
         <label>Title</label>
