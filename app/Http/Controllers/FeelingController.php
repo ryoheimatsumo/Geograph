@@ -15,4 +15,13 @@ class FeelingController extends Controller
         
         return redirect()->route('geo.room', ['id' => $feeling->room_id]);
     }
+    
+    function create_($id, $content){
+        $feeling = new Feeling();
+        $feeling->content = $content;
+        $feeling->room_id = $id;
+        $feeling->save();
+        
+        return \Response::json(['success' => true]);
+    }
 }

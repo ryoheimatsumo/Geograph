@@ -1,5 +1,5 @@
 // == main ==
-// setInterval(tick, 5000);
+setInterval(tick, 5000);
 function tick(){
     getRooms();
 }
@@ -11,7 +11,7 @@ function getRooms(){
 // == ajax ==
 function updateDOM(jData, coords){
     displayRooms(jData);
-    updateForm(coords);
+    // updateForm(coords);
 }
 
 function displayRooms(jData){
@@ -26,11 +26,11 @@ function displayRooms(jData){
     roomsSection.innerHTML = dom;
 }
 
-function updateForm(coords){
-    var form = document.getElementById("create-room-form");
-    form.innerHTML+="<input type=\"hidden\" name=\"latitude\" value=\""+ coords.latitude +"\">";
-    form.innerHTML+="<input type=\"hidden\" name=\"longtitude\" value=\""+ coords.longitude +"\">";
-}
+// function updateForm(coords){
+//     var form = document.getElementById("create-room-form");
+//     form.innerHTML+="<input type=\"hidden\" name=\"latitude\" value=\""+ coords.latitude +"\">";
+//     form.innerHTML+="<input type=\"hidden\" name=\"longtitude\" value=\""+ coords.longitude +"\">";
+// }
 
 function sendAjax(coords){
     var xhttp = new XMLHttpRequest();
@@ -62,4 +62,8 @@ function error(err) {
 
 function getGeo(){
     navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+function getGeo_(cBack){
+    navigator.geolocation.getCurrentPosition(cBack, error, options);
 }

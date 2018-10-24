@@ -9,6 +9,20 @@
         <!--<script type="text/javascript" src="{{secure_asset('js/sketch.js')}}"></script>-->
         <script type="text/javascript" src="{{secure_asset('js/room.js')}}"></script>
         <script type="text/javascript">tick();</script>
+        <script type="text/javascript">
+            function go(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                        tick();
+                    }
+                };
+                var f = document.getElementById("feeling-input").innerText;
+                xhttp.open("GET", "/feeling/create/"+{{$room->id}}+"/"+f, true);
+                xhttp.send();
+            }
+        </script>
     </head>
     <body>
         <div class="container">
@@ -18,13 +32,8 @@
             <!-- New Feeling Form -->
             <hr>
             <h2>How are you feeling?</h2>
-            {!! Form::open(array('url' => URL::to('/feeling/create', array(), true) )) !!}
-            {!! Form::token() !!}
-            <label>Content</label>
-            {!! Form::text('content') !!}<br>
-            {{Form::hidden('room_id', $room->id)}}
-            {!! Form::submit('Post!!') !!}
-            {!! Form::close() !!}
+            <div class="input-group-text" id="feeling-input" contenteditable="true">Feeling</div>
+            <button class="btn btn-primary" onclick="go()">post</button>
             
             <!-- Feelings Section -->
             <hr>
