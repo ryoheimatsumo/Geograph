@@ -29,18 +29,22 @@
         </script>
     </head>
     <body>
-        <h1>GeoGraph</h1>
-        
-        <hr>
-        <h2>Join</h2>
-        <div id="rooms-section"></div>
-        
-        <hr>
-        <h2>Create</h2>
-        <label>Title</label>
-        <div class="input-group-text" id="room-input-title" contenteditable="true">Room 1</div>
-        <label>Description</label>
-        <div class="input-group-text" id="room-input-description" contenteditable="true">Description 1</div>
-        <button class="btn btn-primary" onclick="go()">create</button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">PUTIPUTI</a>
+        </nav>
+        <div class="container">
+            <hr>
+            <h2>New Room</h2>
+            <label>Where are you?</label>
+            <div class="input-group-text" id="room-input-title" contenteditable="true">Room 1</div>
+            <label>What do you wanna do?</label>
+            <div class="input-group-text" id="room-input-description" contenteditable="true">Description 1</div>
+            <button class="btn btn-info" onclick="go()">create</button>
+            
+            <hr>
+            <h2>Join</h2>
+            
+            <div id="rooms-section" class="row"></div>
+        </div>
     </body>
 </html>

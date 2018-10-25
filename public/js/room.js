@@ -1,4 +1,4 @@
-// setInterval(tick, 5000);
+setInterval(tick, 5000);
 
 function tick(){
     update();
@@ -45,7 +45,7 @@ function displayRoomData(data){
     // remove previous
     var wCloud = document.getElementsByClassName('wordcloud');
     for(var i=0; i<wCloud.length; i++){
-        wCloud[i].remove();
+        wCloud[i].parentElement.remove();
     }
     
     // d3-cloud
@@ -64,7 +64,7 @@ function displayRoomData(data){
         .domain([0,1,2,3,4,5,6,10,15,20,100])
         .range(["#0000ff", "#ff1493", "#ffd700", "#7cfc00", "#8a2be2", "#a52a2a", "#8b008b", "#000000", "#00ffff", "#ff0000", "#330", "#220"]);
 
-    d3.layout.cloud().size([800, 300])
+    d3.layout.cloud().size([document.getElementsByClassName('container')[0].offsetWidth-50, 300])
         .words(frequency_list)
         .rotate(0)
         .fontSize(function(d) { return d.size; })
@@ -78,7 +78,7 @@ function displayRoomData(data){
 function draw(words) {
     d3.select("body").append("div").attr("class", "container")
         .append("svg")
-        .attr("width", 850)
+        .attr("width", document.getElementsByClassName('container')[0].offsetWidth)
         .attr("height", 350)
         .attr("class", "wordcloud")
         .append("g")

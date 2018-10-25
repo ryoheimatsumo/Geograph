@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" type="text/css" />
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" href="{{secure_asset('css/room.css')}}" type="text/css" />
         <script src="{{secure_asset('js/d3.v3.min.js')}}"></script>
         <script src="{{secure_asset('js/d3.layout.cloud.js')}}"></script>
         <script>
@@ -25,19 +27,24 @@
         </script>
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">PUTIPUTI</a>
+        </nav>
         <div class="container">
-            <h1 class="text-center">Title: {{$room->title}}</h1>
-            <h2 class="text-center">{{$room->descroption}}</h2>
+            <h1 id="room-title" class="text-center mt-3">#{{$room->title}}</h1>
+            <h3 id="room-desc" class="text-center">{{$room->descroption}}</h3>
             
             <!-- New Feeling Form -->
             <hr>
-            <h2>How are you feeling?</h2>
-            <div class="input-group-text" id="feeling-input" contenteditable="true">Feeling</div>
-            <button class="btn btn-primary" onclick="go()">post</button>
+            <h2 class="text-center">How do you feel?</h2>
+            <div class="row">
+                <div class="input-group-text col-10" id="feeling-input" contenteditable="true">post your feelings(´;ω;｀)</div>
+                <button class="btn btn-info col-2" onclick="go()">post</button>
+            </div>
             
             <!-- Feelings Section -->
             <hr>
-            <h2>Feelings</h2>
+            <h2 class="feelings">#your feelings</h2>
             <div id="feeling-section"></div>
         </div>
     </body>

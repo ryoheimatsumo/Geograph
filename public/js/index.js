@@ -21,7 +21,8 @@ function displayRooms(jData){
     
     var dom = "";
     for(var i=0; i<rooms.length; i++){
-        dom += "<h2><a href=\"/" + rooms[i].id + "\">" + rooms[i].title + "</a>(" + Math.round(rooms[i].distance) + "m away)</h2>";
+        dom += '<div class="col-3"> <div class="card"> <div class="card-body"> <h5 class="card-title">'+rooms[i].title+' <span class="badge badge-secondary">'+Math.round(rooms[i].distance)+'m</span></h5> <h6 class="card-subtitle mb-2 text-muted">'+rooms[i].descroption+'</h6> <a href="/'+rooms[i].id+'" class="btn btn-info">join</a> </div></div></div>';
+        // dom += "<h2><a href=\"/" + rooms[i].id + "\">" + rooms[i].title + "</a>(" + Math.round(rooms[i].distance) + "m away)</h2>";
     }
     roomsSection.innerHTML = dom;
 }
