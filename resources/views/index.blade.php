@@ -31,6 +31,13 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">PUTIPUTI</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/world">What's up, World?</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
         <div class="container">
             <hr>

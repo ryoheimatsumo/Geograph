@@ -13,6 +13,7 @@
 
 // Main Controller
 Route::get('/', 'MainController@index');
+Route::get('/world', 'MainController@world')->name('main.world');
 Route::get('/{id}', 'GeoController@room')->name('geo.room');
 Route::get('/room/new', 'RoomController@showForm')->name('room.showForm');
 Route::post('/room/create', 'RoomController@create')->name('room.create');
